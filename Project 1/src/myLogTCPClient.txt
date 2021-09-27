@@ -1,0 +1,38 @@
+Sep 27, 2021 11:45:36 PM TCPClient main
+INFO: SUCCESS 5 PUT, 5 GET, 5 DELETE REQUESTs
+Sep 27, 2021 11:45:39 PM TCPClient main
+INFO: Socket response: SUCCESS PUT REQUEST
+Sep 27, 2021 11:45:42 PM TCPClient main
+INFO: Socket response: SUCCESS PUT REQUEST
+Sep 27, 2021 11:45:55 PM TCPClient main
+INFO: Socket response: SUCCESS PUT REQUEST
+Sep 27, 2021 11:45:58 PM TCPClient main
+INFO: Socket response: Key format incorrect
+Sep 27, 2021 11:46:00 PM TCPClient main
+INFO: Socket response: SUCCESS GET REQUEST: hello
+Sep 27, 2021 11:46:03 PM TCPClient main
+INFO: Socket response: SUCCESS GET REQUEST: bye
+Sep 27, 2021 11:46:05 PM TCPClient main
+INFO: Socket response: SUCCESS GET REQUEST: justin
+Sep 27, 2021 11:46:09 PM TCPClient main
+INFO: Socket response: Key format incorrect
+Sep 27, 2021 11:46:13 PM TCPClient main
+INFO: Network timeout
+Sep 27, 2021 11:46:17 PM TCPClient main
+INFO: Socket response: FAILURE GET REQUEST
+Sep 27, 2021 11:46:20 PM TCPClient main
+INFO: Socket response: FAILURE GET REQUEST
+Sep 27, 2021 11:46:25 PM TCPClient main
+INFO: Socket response: SUCCESS DELETE REQUEST
+Sep 27, 2021 11:46:27 PM TCPClient main
+INFO: Socket response: FAILURE GET REQUEST
+Sep 27, 2021 11:46:29 PM TCPClient main
+INFO: Socket response: SUCCESS GET REQUEST: bye
+Sep 27, 2021 11:46:32 PM TCPClient main
+INFO: Socket response: SUCCESS DELETE REQUEST
+Sep 27, 2021 11:46:34 PM TCPClient main
+INFO: Socket response: SUCCESS DELETE REQUEST
+Sep 27, 2021 11:46:37 PM TCPClient main
+INFO: Socket response: FAILURE GET REQUEST
+Sep 27, 2021 11:46:42 PM TCPClient main
+INFO: Socket response: FAILURE GET REQUEST
