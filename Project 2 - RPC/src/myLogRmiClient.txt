@@ -1,0 +1,52 @@
+Oct 19, 2021 6:19:43 PM Client.RmiClient initialEntry
+INFO: Put 0 into hashmap
+Oct 19, 2021 6:19:43 PM Client.RmiClient initialEntry
+INFO: Request get: output: 0
+Oct 19, 2021 6:19:43 PM Client.RmiClient initialEntry
+INFO: Request delete: 0
+Oct 19, 2021 6:19:43 PM Client.RmiClient initialEntry
+INFO: Put 1 into hashmap
+Oct 19, 2021 6:19:43 PM Client.RmiClient initialEntry
+INFO: Request get: output: 1
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request delete: 1
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Put 2 into hashmap
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request get: output: 2
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request delete: 2
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Put 3 into hashmap
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request get: output: 3
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request delete: 3
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Put 4 into hashmap
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request get: output: 4
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request delete: 4
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Put 5 into hashmap
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request get: output: 5
+Oct 19, 2021 6:19:44 PM Client.RmiClient initialEntry
+INFO: Request delete: 5
+Oct 19, 2021 6:20:04 PM Client.RmiClient main
+INFO: Request sent to the server: put
+Oct 19, 2021 6:20:12 PM Client.RmiClient main
+INFO: Request put: hello world
+Oct 19, 2021 6:20:49 PM Client.RmiClient main
+INFO: Request sent to the server: get
+Oct 19, 2021 6:20:50 PM Client.RmiClient main
+INFO: Request get: null
+Oct 19, 2021 6:20:53 PM Client.RmiClient main
+INFO: Request sent to the server: put
+Oct 19, 2021 6:20:56 PM Client.RmiClient main
+INFO: Request put: good
+Oct 19, 2021 6:20:59 PM Client.RmiClient main
+INFO: Request sent to the server: get
+Oct 19, 2021 6:21:00 PM Client.RmiClient main
+INFO: Request get: good
