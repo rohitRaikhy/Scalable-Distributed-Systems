@@ -1,0 +1,8 @@
+Nov 13, 2021 5:55:14 PM Client.Client main
+INFO: Request sent to the server: put
+Nov 13, 2021 5:55:16 PM Client.Client main
+INFO: Request put: hello
+Nov 13, 2021 5:55:22 PM Client.Client main
+INFO: Request sent to the server: get
+Nov 13, 2021 5:55:22 PM Client.Client main
+INFO: Request get: hello
