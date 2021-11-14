@@ -12,5 +12,5 @@ docker run -d -p 1003:1003 -ti --rm --name server_three server  1003 server_thre
 docker run -d -p 1004:1004 -ti --rm --name server_four server  1004 server_four 2000 host.docker.internal
 docker run -d -p 1005:1005 -ti --rm --name server_five server  1005 server_five 2000 host.docker.internal
 
-docker run -d -p 2000:2000 -ti --rm coord 2000 1001,1002,1003,1004,1005
+#docker run -d -p 2000:2000 -ti --rm coord 2000 1001,1002,1003,1004,1005
 #docker run -d -p 3000:3000 -ti --rm client host.docker.internal 1001 server_one 2000
