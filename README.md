@@ -16,6 +16,10 @@
 
 ## Projects
 
-Built a key value store with client, server, coordinator achitecture. Utilized remote procedural calls, two phase commit algorithm, java RMI, Docker, TCP. 
+1. Built a clone of dropbox.
 <br>
-Built a clone of dropbox
+2. Built a key value store with client, server, coordinator achitecture. 
+<br>
+4. Utilized remote procedural calls, two phase commit algorithm, java RMI, Docker, TCP. 
+
+
