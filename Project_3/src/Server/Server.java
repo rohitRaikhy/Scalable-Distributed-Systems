@@ -41,7 +41,6 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
         this.localhost = localhost;
     }
 
-    // This requests a get method, does not need to talk to the coordinator
     @Override
     public String startGetRequestThread(String key, Integer coordPortNumber) throws RemoteException, InterruptedException {
         Server server = new Server("GET", key, "EMPTY", coordPortNumber, serverName, localhost);
@@ -52,22 +51,17 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
         return val;
     }
 
-    //TODO: Needs to talk to the coordinator to perform put. If global commit msg comes back, coordinator
-    // TODO: will perform put.
     @Override
     public void startPutRequest(String key, String value, Integer coordPortNumber) throws RemoteException {
 
         Server server = new Server("PUT", key, value, coordPortNumber, serverName, localhost);
-        //TODO: IF WORKS ADD PRINT STATEMENT FOR SUCCESS
         new Thread(server).start();
 
     }
 
-    //TODO: Needs to talk to the coordinator to perform delete
     @Override
     public void startDeleteRequest(String key, Integer coordPortNumber) throws RemoteException {
         Server server = new Server("DELETE", key, "EMPTY", coordPortNumber, serverName, localhost);
-        //TODO: IF WORKS ADD PRINT STATEMENT FOR SUCCESS
         new Thread(server).start();
     }
 
@@ -82,7 +76,6 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
         }
     }
 
-    // TODO: need a roll back if failed
     @Override
     public void rollBackPutRequest(String key) throws RemoteException {
         try {
@@ -137,30 +130,20 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
                     returnMsg = getRequest(this.key, map);
                     break;
                 case "put":
-                   // putRequest(this.key, this.msg, map);
-                    //TODO: Call the coordinator for global message commit or abort. e.g coordintor.phase1()
-                    //TODO: Get coordinator registry, talk to cooridaintor through regirstry
                     try {
-                        //TODO: local host is hardcoded, might not work with docker, port is also hardcoded for the
-                        //TODO: coordinator need to change this by adding to the client so client knows port of cooridinator
-                       //Registry registry = LocateRegistry.getRegistry("localhost", cordPortNumber);
                         Registry registry = LocateRegistry.getRegistry(localhost, cordPortNumber);
                         ICoordinator coordinator = (ICoordinator) registry.lookup("Coordinator");
                         LOGGER.info("hit");
-                    //  coordinator.phaseOne("localhost", serverName, "PUT", this.key, this.msg);
                       coordinator.phaseOne(localhost, serverName, "PUT", this.key, this.msg);
                     } catch (NotBoundException e) {
                         System.out.println("Not bound");
                     }
                     break;
                 case "delete":
-                   // deleteKeyRequest(this.key, map);
                     try {
-                        //Registry registry = LocateRegistry.getRegistry("localhost", cordPortNumber);
                         Registry registry = LocateRegistry.getRegistry(localhost, cordPortNumber);
                         ICoordinator coordinator = (ICoordinator) registry.lookup("Coordinator");
                         returnMsg = getRequest(this.key, map);
-                       // coordinator.phaseOne("localhost", serverName, "DELETE", this.key, returnMsg);
                         coordinator.phaseOne(localhost, serverName, "DELETE", this.key, returnMsg);
                     } catch (NotBoundException e) {
                         System.out.println("Not bound");
@@ -173,7 +156,6 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
             e.printStackTrace();
         }
     }
-
     public String getMessage() {
         return returnMsg;
     }
