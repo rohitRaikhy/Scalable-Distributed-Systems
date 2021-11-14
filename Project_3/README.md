@@ -5,10 +5,11 @@
 ## Running the key value store using docker on terminal
 
 ### Commands to run docker:
-1. ./start.sh - creates the docker image for the server, builds 5 docker containers and runs them in background. 
-2. docker ps - check to see if the docker containers are running 
-3. docker run -p 2000:2000 -ti --rm coord 2000 1001,1002,1003,1004,1005 - run the coordinator in the foreground. Shows failure of PUT request after one server is down.
-4. docker run -p 3000:3000 -ti --rm client host.docker.internal 1002 server_two 2000 - run the client program. Changing the port number from 1002 to another between {1001, 1002, 1003, 1004, 1005} will work to connect to another server.
+1. chmod +x start.sh 
+2. ./start.sh - creates the docker image for the server, builds 5 docker containers and runs them in background. 
+3. docker ps - check to see if the docker containers are running 
+4. docker run -p 2000:2000 -ti --rm coord 2000 1001,1002,1003,1004,1005 - run the coordinator in the foreground. Shows failure of PUT request after one server is down.
+5. docker run -p 3000:3000 -ti --rm client host.docker.internal 1002 server_two 2000 - run the client program. Changing the port number from 1002 to another between {1001, 1002, 1003, 1004, 1005} will work to connect to another server.
 
 ### Issues to be resolved 
 1. The coordinator needs to be in this format {2000 1001,1002,1003,1004,1005} for the coordinator port and servers ports. 2000 is the coordinator port number and the others are the servers. The input to the command line must follow this exacy syntax. 
