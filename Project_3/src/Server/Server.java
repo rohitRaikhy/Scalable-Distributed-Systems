@@ -24,27 +24,27 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
     private String localhost;
 
 
-    public Server(Integer cordPortNumber, String serverName) throws RemoteException {
+    public Server(Integer cordPortNumber, String serverName, String localhost) throws RemoteException {
         this.cordPortNumber = cordPortNumber;
         this.serverName = serverName;
-       // this.localhost = localhost;
+        this.localhost = localhost;
     }
 
-    public Server(String request, String key, String msg, Integer coordPortNumber, String serverName
-                  ) throws RemoteException {
+    public Server(String request, String key, String msg, Integer coordPortNumber, String serverName,
+                 String localhost ) throws RemoteException {
         super();
         this.request = request;
         this.key = key;
         this.msg = msg;
         this.cordPortNumber = coordPortNumber;
         this.serverName = serverName;
-      //  this.localhost = localhost;
+        this.localhost = localhost;
     }
 
     // This requests a get method, does not need to talk to the coordinator
     @Override
     public String startGetRequestThread(String key, Integer coordPortNumber) throws RemoteException, InterruptedException {
-        Server server = new Server("GET", key, "EMPTY", coordPortNumber, serverName);
+        Server server = new Server("GET", key, "EMPTY", coordPortNumber, serverName, localhost);
         Thread T1 = new Thread(server);
         T1.start();
         T1.join();
@@ -57,7 +57,7 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
     @Override
     public void startPutRequest(String key, String value, Integer coordPortNumber) throws RemoteException {
 
-        Server server = new Server("PUT", key, value, coordPortNumber, serverName);
+        Server server = new Server("PUT", key, value, coordPortNumber, serverName, localhost);
         //TODO: IF WORKS ADD PRINT STATEMENT FOR SUCCESS
         new Thread(server).start();
 
@@ -66,7 +66,7 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
     //TODO: Needs to talk to the coordinator to perform delete
     @Override
     public void startDeleteRequest(String key, Integer coordPortNumber) throws RemoteException {
-        Server server = new Server("DELETE", key, "EMPTY", coordPortNumber, serverName);
+        Server server = new Server("DELETE", key, "EMPTY", coordPortNumber, serverName, localhost);
         //TODO: IF WORKS ADD PRINT STATEMENT FOR SUCCESS
         new Thread(server).start();
     }
@@ -143,14 +143,12 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
                     try {
                         //TODO: local host is hardcoded, might not work with docker, port is also hardcoded for the
                         //TODO: coordinator need to change this by adding to the client so client knows port of cooridinator
-                       Registry registry = LocateRegistry.getRegistry("localhost", cordPortNumber);
-                      //  Registry registry = LocateRegistry.getRegistry(localhost, cordPortNumber);
+                       //Registry registry = LocateRegistry.getRegistry("localhost", cordPortNumber);
+                        Registry registry = LocateRegistry.getRegistry(localhost, cordPortNumber);
                         ICoordinator coordinator = (ICoordinator) registry.lookup("Coordinator");
-//                        System.out.println("KEY: "  + this.key);
-//                        System.out.println("MSG: "  + this.msg);
                         LOGGER.info("hit");
-                      coordinator.phaseOne("localhost", serverName, "PUT", this.key, this.msg);
-                       // coordinator.phaseOne(localhost, serverName, "PUT", this.key, this.msg);
+                    //  coordinator.phaseOne("localhost", serverName, "PUT", this.key, this.msg);
+                      coordinator.phaseOne(localhost, serverName, "PUT", this.key, this.msg);
                     } catch (NotBoundException e) {
                         System.out.println("Not bound");
                     }
@@ -158,12 +156,12 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
                 case "delete":
                    // deleteKeyRequest(this.key, map);
                     try {
-                        Registry registry = LocateRegistry.getRegistry("localhost", cordPortNumber);
-                        //Registry registry = LocateRegistry.getRegistry(localhost, cordPortNumber);
+                        //Registry registry = LocateRegistry.getRegistry("localhost", cordPortNumber);
+                        Registry registry = LocateRegistry.getRegistry(localhost, cordPortNumber);
                         ICoordinator coordinator = (ICoordinator) registry.lookup("Coordinator");
                         returnMsg = getRequest(this.key, map);
-                        coordinator.phaseOne("localhost", serverName, "DELETE", this.key, returnMsg);
-                        //coordinator.phaseOne(localhost, serverName, "DELETE", this.key, returnMsg);
+                       // coordinator.phaseOne("localhost", serverName, "DELETE", this.key, returnMsg);
+                        coordinator.phaseOne(localhost, serverName, "DELETE", this.key, returnMsg);
                     } catch (NotBoundException e) {
                         System.out.println("Not bound");
                     }
@@ -172,7 +170,7 @@ public class Server extends ComputationsImpl implements Runnable, IServer{
                     throw new IllegalArgumentException("Cannot perform request");
             }
         } catch (RemoteException e) {
-            System.out.println("Remote Exception");
+            e.printStackTrace();
         }
     }
 

@@ -25,9 +25,9 @@ public class StartServer {
             int portNumber = Integer.parseInt(args[0]);
             String serverName = args[1].toString();
             int cordPortNumber = Integer.parseInt(args[2]);
-            //String localhost = args[3].toString();
+            String localhost = args[3].toString();
 
-            Server server = new Server(cordPortNumber, serverName);
+            Server server = new Server(cordPortNumber, serverName, localhost);
             Registry registry = LocateRegistry.createRegistry(portNumber);
             registry.bind(serverName, server);
             System.out.println("SUCCESS CONNECTED TO SERVER");
