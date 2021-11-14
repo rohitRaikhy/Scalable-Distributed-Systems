@@ -1,5 +1,7 @@
 # Scalable-Distributed-Systems
 
+![image](https://user-images.githubusercontent.com/35156624/141693056-a965c550-adb5-44cd-8ae4-9099aff50325.png)
+
 ## Running the key value store using docker on terminal
 
 ### Commands to run docker:
