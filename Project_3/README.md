@@ -15,6 +15,10 @@
 
 ### Summary 
 
+The scope of work includes learning of the two phase commit protocol and using the RMI framework in java to achieve RPC. RMI framework is used to perform remote method calls on another machine to send/receive data using client/server/coordinator architecture. Networking, operating systems and RMI was needed for the project. Docker was used to create an image for the server, and 5 server containers are created. Port mapping is used for the containers to communicate with one another using TCP. The server has the ability to handle multi threaded requests, expception handling was needed to complete this scope of work. The key concepts of performing RPC is covered, understanding that RPC can be used to utilize greater resources on remote machine to perform computationally extensive work is realized. The two phase commit protocol is used to create conistency among the 5 replicated servers, if a PUT or DELETE request is given from the client. If a server is down or a request cannot be handled, then a rollback method is called to undo any changes on the distributed system. 
+
+For the future one can use better exception handling when dealing with data requests and better parsing of user data to make the program more robust. This is a introduction to RPC as well as the the two phase commit protocol and in the scope of assignemnt the program may throw some errors. A queue can be used to priortize requests coming into the server from multiple clients. A message service can also be used like message queues through a framework like rabbitmq to post to clients messages needed about the service. 
+
 #### Build docker image and run containers using shell script
 ![Screen Shot 2021-11-14 at 12 05 48 PM](https://user-images.githubusercontent.com/35156624/141690781-0be22900-702c-4e5b-9812-d763b52a2842.png)
 #### Check to see if containers running
