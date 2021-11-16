@@ -8,8 +8,8 @@
 • Models of inter process communication  
 • Representation and correctness of distributed programs  
 • Time on Distributed Systems – physical and logical time  
-• Consistency  
-• Microservices Architecture
+• Consistency  <br>
+• Microservices Architecture <br>
 • Distributed mutual exclusion and tokens  
 • Distributed snapshots and global state  
 • Fault tolerance  
