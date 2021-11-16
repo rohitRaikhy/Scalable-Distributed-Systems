@@ -9,6 +9,7 @@
 • Representation and correctness of distributed programs  
 • Time on Distributed Systems – physical and logical time  
 • Consistency  
+• Microservices Architecture
 • Distributed mutual exclusion and tokens  
 • Distributed snapshots and global state  
 • Fault tolerance  
