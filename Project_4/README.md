@@ -1,4 +1,4 @@
-# Project 4 
+# Project 4 - PAXOS
 
 ## Commands to run docker:
 1. chmod +x start.sh 
