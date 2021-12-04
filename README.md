@@ -19,6 +19,6 @@
 1. Built a clone of dropbox.
 2. Built a key value store with client, server, coordinator achitecture. 
 3. Utilized remote procedural calls, two phase commit algorithm, java RMI, Docker, TCP. 
-4. Built a key value store withPAXOS for fault tolerance consensus.
+4. Built a key value store with PAXOS for fault tolerance consensus.
 
 
