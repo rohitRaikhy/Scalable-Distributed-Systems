@@ -1,6 +1,0 @@
-Dec 03, 2021 3:59:50 PM Client.Client main
-INFO: Request sent to the server: put
-Dec 03, 2021 3:59:59 PM Client.Client main
-INFO: Request sent to the server: put
-Dec 03, 2021 4:00:21 PM Client.Client main
-INFO: Request sent to the server: put
